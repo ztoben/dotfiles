@@ -1,0 +1,8 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "vs-minimal",
+    "files.eol": "\n",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
+}
