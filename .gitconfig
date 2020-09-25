@@ -1,0 +1,46 @@
+[user]
+        name = Zach Toben
+        email = zach.toben@gmail.com
+[github]
+        user = ztoben
+[alias]
+        co = checkout
+        st = status
+        lg = log --color=auto --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        df = diff
+        dc = diff --cached
+        st = status
+        out = log --pretty=oneline --abbrev-commit --graph @{u}..
+        in = !git fetch && git log --pretty=oneline --abbrev-commit --graph ..@{u}
+
+        pr = !git pull origin master --rebase
+        pu = push
+        
+        # Stage and print status
+        # Defaults to stage all, but only if nothing else is staged
+        ad = "!f() { if [ ! -z \"$1\" ] || git diff --cached --quiet; then git add -A \"$@\" && git status; else echo \"Staging prevented\"; return 8; fi }; f"
+        squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-A new start}\");};f"
+        upd = !git pull && npm i && git checkout package-lock.json
+        upds = !git stash && git pull && npm i && git checkout package-lock.json && git stash pop
+        empty = !git ls-files --other --exclude-standard --directory
+[core]
+        autocrlf = input
+        longpaths = true
+        whitespace = fix, tab-in-indent, trailing-space, cr-at-eol
+        excludesfile = /Users/ztoben/.gitignore_global
+        trustctime = false
+[credential]
+        helper = osxkeychain
+[commit]
+        gpgsign = true
+[gpg]
+        program = gpg2
+[pull]
+        rebase = true
+[push]
+        default = simple
+        followTags = true
+[branch]
+        autorebase = always
+[rebase]
+        autosquash = true
